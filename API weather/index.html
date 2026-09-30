@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Weather Forecasts</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌤️</text></svg>">
+</head>
+
+<body>
+  <main class="phone">
+
+    <!-- Screen 1: Get Start -->
+    <section id="screen-start" class="screen active">
+      <div class="hero-icon">
+        <div class="sun"></div>
+        <div class="cloud"></div>
+        <div class="rain"></div>
+      </div>
+      <h1>Weather<br><span>ForeCasts</span></h1>
+      <button id="btn-start" class="btn">Get Start</button>
+    </section>
+
+    <!-- Screen 2: City -->
+    <section id="screen-city" class="screen">
+      <div class="hero-icon small">
+        <div class="sun"></div>
+        <div class="cloud"></div>
+      </div>
+      <h2>Which city?</h2>
+      <p class="muted">Enter a city name to see today's weather.</p>
+      <form id="city-form">
+        <input id="city-input" type="text" placeholder="e.g. Surat" autocomplete="off" required>
+        <button class="btn" type="submit">Search</button>
+      </form>
+      <p id="error" class="error" role="alert"></p>
+    </section>
+
+    <!-- Screen 3: Weather -->
+    <section id="screen-weather" class="screen">
+      <header class="top">
+        <button id="btn-back" class="icon-btn" aria-label="Search another city">&#8592;</button>
+        <div class="loc">
+          <strong id="w-city">--</strong>
+          <span id="w-date">--</span>
+        </div>
+        <span class="icon-btn ghost"></span>
+      </header>
+
+      <div class="now">
+        <img id="w-icon" alt="" width="140" height="140">
+        <div class="temp"><span id="w-temp">--</span><sup>°</sup></div>
+        <p id="w-desc" class="desc">--</p>
+        <p class="muted">Max: <span id="w-max">--</span>° &nbsp; Min: <span id="w-min">--</span>°</p>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><b>Today</b><span id="w-updated" class="muted"></span></div>
+        <div id="hourly" class="hourly"></div>
+      </div>
+
+      <div class="grid">
+        <div class="card mini"><small>Humidity</small><b id="w-humidity">--</b></div>
+        <div class="card mini"><small>Wind</small><b id="w-wind">--</b></div>
+        <div class="card mini"><small>Feels like</small><b id="w-feels">--</b></div>
+        <div class="card mini"><small>Pressure</small><b id="w-pressure">--</b></div>
+        <div class="card mini"><small>Visibility</small><b id="w-vis">--</b></div>
+        <div class="card mini"><small>Clouds</small><b id="w-clouds">--</b></div>
+        <div class="card mini"><small>Sunrise</small><b id="w-sunrise">--</b></div>
+        <div class="card mini"><small>Sunset</small><b id="w-sunset">--</b></div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><b>Air quality</b></div>
+        <p id="w-aqi" class="aqi">--</p>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><b>5-day forecast</b></div>
+        <div id="daily" class="daily"></div>
+      </div>
+    </section>
+
+    <div id="loader" class="loader" hidden><span></span></div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
